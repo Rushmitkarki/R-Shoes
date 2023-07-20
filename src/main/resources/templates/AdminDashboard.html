@@ -71,7 +71,7 @@
         >
             <span class="bi bi-list"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="">
             <ul class="navbar-nav m-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
@@ -84,18 +84,25 @@
                         Our-Branch
                     </a>
                     <div class="dropdown-menu" aria-labelledby="our-branch-dropdown">
-                        <a class="dropdown-item" href="#">Kathmandu</a>
-                        <a class="dropdown-item" href="#">Chitwan</a>
-                        <a class="dropdown-item" href="#">Pokhara</a>
+                        <a class="dropdown-item" th:="">Kathmandu</a>
+                        <a class="dropdown-item" th:="">Chitwan</a>
+                        <a class="dropdown-item" th:="">Pokhara</a>
                     </div>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Gallery</a>
+                    <a class="nav-link" href="index.html">Delete Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Active Users</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="contact.html">Contact us</a>
                 </li>
+                <form class="d-flex" th:action="@{/buyer/search}" th:method="post">
+                    <input class="form-control me-2" type="search" name="searchName" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
             </ul>
             <ul class="navbar-nav mb-2 mb-lg-0 action-menu">
                 <li class="nav-item">
@@ -107,52 +114,140 @@
         </div>
     </div>
 </nav>
-<div class="container login-form">
-    <div class="row mt-4 justify-content-center">
+<!-- home.html -->
 
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <div class="offest-md-4">
-                        <h1 class="text-center mt-4 mb-4 fw-bolder">Login</h1>
-                        <form class="form-login">
-                            <!-- Email input -->
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="form2Example1">Email address</label>
-                                <input type="email" id="form2Example1" class="form-control" placeholder="E-mail" />
-                            </div>
-                            <!-- Password input -->
-                            <div class="form-outline mb-4">
-                                <label class="form-label " for="form2Example2">Password</label>
-                                <!-- Simple link -->
-                                <a href="#!" class="float-end text-primary">Forgot password?</a>
-                                <input type="password" id="form2Example2" class="form-control" placeholder="Password"/>
-                            </div>
-                            <!-- 2 column grid layout for inline styling -->
-                            <div class="row mb-4">
-                                <div class="col d-flex">
-                                    <!-- Checkbox -->
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="form2Example31"
-                                               checked />
-                                        <label class="form-check-label" for="form2Example31"> Remember me </label>
-                                    </div>
+<body>
+
+                <!--        <li class="nav-item dropdown">-->
+                <!--          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+                <!--            Dropdown-->
+                <!--          </a>-->
+                <!--          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+                <!--            <li><a class="dropdown-item" href="#">Action</a></li>-->
+                <!--            <li><a class="dropdown-item" href="#">Another action</a></li>-->
+                <!--            <li><hr class="dropdown-divider"></li>-->
+                <!--            <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+                <!--          </ul>-->
+                <!--        </li>-->
+
+
+            <!--      <li class="nav-item">-->
+            <!--        <a class="nav-link" href="#">Account</a>-->
+            <!--      </li>-->
+        </div>
+    </div>
+</nav>
+<!-- Content specific to the home page -->
+<main  >
+
+    <div class="container-fluid mt-3 pt-3">
+        <div class="h1 text-center mt-5">
+            Add Item
+        </div>
+        <div class="row">
+
+            <div class="col-8">
+                <div class="ms-4">
+
+                    <form th:action="@{/seller/item/save}" th:method="post"  enctype="multipart/form-data">
+                        <div class="form-group mb-4">
+                            <label for="name">Item Name</label>
+                            <input type="text" class="form-control" id="name" name="itemName" placeholder="Enter Item Name">
+                        </div>
+                        <div class="form-group mb-4">
+                            <label for="description">Item Description</label>
+                            <textarea type="text" class="form-control" id="description" name="itemDescription" placeholder="Enter Item Description">
+                </textarea>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label for="price">Item Price</label>
+                            <input type="number" class="form-control" id="price" name="itemPrice" placeholder="Enter Item Price">
+                        </div>
+                        <div class="form-group mb-4">
+                            <label for="quantity">Item Quantity</label>
+                            <input type="number" class="form-control" id="quantity" name="itemQuantity" placeholder="Enter Item Quantity">
+                        </div>
+                        <div class="form-group mb-4">
+                            <label for="image">Item Image</label>
+                            <input type="file" class="form-control" id="image" name="itemImage" accept="image/*" >
+                        </div>
+                        <div class="form-group mb-4 ">
+                            <div class="row">
+                                <div class="col-2  me-3`">
+                                    <label for="sel1" class="form-label">Select Category</label>
+                                    <select class="form-select" id="sel1" name="category">
+                                        <option th:each="category:${categories}" th:text="${category.catName}" th:value="${category.catId}"></option>
+                                    </select>
+                                </div>
+                                <div class="col-3">
+                                    <!-- Button to Open the Modal -->
+                                    <button type="button"  style="margin-top: 30px" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+                                        Add category
+                                    </button>
                                 </div>
                             </div>
-
-                            <!-- Submit button -->
-                            <div class="col-md-12">
-                                <button type="button" class="col-12 btn btn-primary btn-block mb-4">Sign
-                                    in</button>
-                            </div>
-                            <p class="text-center"> Don't have account yet?<a href="register.html" class="text-primary"> Sign up</a></p>
-                        </form>
-                    </div>
+                        </div>
+                        <div class="form-group mt-4">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
                 </div>
+            </div>
+            <!--Display Image -->
+            <div class="col-2">
+                <img  id="preview-image"style="width: 500px;height: 500px;padding-left: 40px;border: black" class="img-fluid" alt="Product IMG">
             </div>
         </div>
     </div>
+</main>
+<div class="footer pt-3"></div>
+<!--Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Modal Heading</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form th:action="@{/category/add}" th:method="post">
+                    <div class="mb-3">
+                        <label for="catName" class="form-label">Category Name</label>
+                        <input type="text" class="form-control" id="catName" placeholder="Enter category name" name="catName">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Category</button>
+                </form>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
 </div>
+
+<script>
+    // JavaScript code for updating the selected image
+    document.getElementById('image').addEventListener('change', function(event) {
+        var file = event.target.files[0];
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('preview-image').src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    });
+</script>
+</body>
+
+</html>
+<!-- Optional JavaScript; choose one of the two! -->
+
 
 
 

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/R-shoes.iml" filepath="$PROJECT_DIR$/R-shoes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/R-shoes.aot.iml" filepath="$PROJECT_DIR$/.idea/modules/R-shoes.aot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/R-shoes.aotTest.iml" filepath="$PROJECT_DIR$/.idea/modules/R-shoes.aotTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/R-shoes.main.iml" filepath="$PROJECT_DIR$/.idea/modules/R-shoes.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/R-shoes.test.iml" filepath="$PROJECT_DIR$/.idea/modules/R-shoes.test.iml" />
+    </modules>
+  </component>
+</project>
