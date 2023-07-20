@@ -18,6 +18,7 @@
 
   <!--Custom Css-->
   <link rel="stylesheet" href="./CSS/style.css">
+
   <!--End Custom Css-->
 </head>
 
@@ -43,7 +44,6 @@
         </a>
         <a href="" class="me-4 text-reset">
           <i class="bi bi-google"></i>
-
         </a>
         <a href="" class="me-4 text-reset">
           <i class="bi bi-instagram"></i>
@@ -54,9 +54,12 @@
 </section>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <img src="../static/Item_img/company.png" height="100" width="100" class="circular-image" />
+
+
+
+
   <div class="container">
     <a class="navbar-brand" href="index.html">
-
       <h2 class="fw-bold  mb-2 mb-lg-0 mb-sm-0">R-Shoes</h2>
 
     </a>
@@ -91,11 +94,20 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="index.html">Gallery</a>
+          <a class="nav-link" href="index.html">Men</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact us</a>
+          <a class="nav-link" href="contact.html">Women</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Kid</a>
+        </li>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit"><i
+                  class="fa-solid fa-magnifying-glass"></i></button>
+
+        </form>
       </ul>
       <ul class="navbar-nav mb-2 mb-lg-0 action-menu">
         <li class="nav-item">
@@ -107,57 +119,22 @@
     </div>
   </div>
 </nav>
-<div class="container login-form">
-  <div class="row mt-4 justify-content-center">
-
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-body">
-          <div class="offest-md-4">
-            <h1 class="text-center mt-4 mb-4 fw-bolder">Register</h1>
-            <form class="form-login">
-              <!-- Email input -->
-              <div class="form-outline mb-4">
-                <label class="form-label" for="form2Example1">Email address</label>
-                <input type="email" id="form2Example1" class="form-control" placeholder="Email" />
-              </div>
-              <!-- Password input -->
-              <div class="form-outline mb-4">
-                <label class="form-label" for="password">Password</label>
-                <input type="password" id="password" class="form-control" placeholder="Password" />
-              </div>
-
-              <div class="form-outline mb-4">
-                <label class="form-label" for="confirmPassword">Confirm Password</label>
-                <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password" />
-              </div>
-
-              <!-- 2 column grid layout for inline styling -->
-              <div class="row mb-4">
-                <div class="col d-flex">
-                  <!-- Checkbox -->
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="form2Example31"
-                           checked />
-                    <label class="form-check-label" for="form2Example31"> Remember me </label>
-                  </div>
-                </div>
-              </div>
-              <!-- Submit button -->
-              <div class="">
-                <button type="button" class="col-12 btn btn-primary btn-block mb-4">Create new
-                  Account</button>
-              </div>
-              <p class="text-center"> Already have account?<a href="login.html" class="text-primary">
-                Sign in</a></p>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" class="custom-control-input" id="customCheck1"
+         onclick="handleCheckboxClick('customCheck1')">
+  <label class="custom-control-label" for="customCheck1">Men</label>
 </div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" class="custom-control-input" id=""
+         onclick="handleCheckboxClick('customCheck2')" onchange="goToNextPage()">
+  <label class="custom-control-label" for="customCheck1">Women</label>
+</div>
+<div class="custom-control custom-checkbox">
+  <input type="checkbox" class="custom-control-input" id="customCheck2"
+         onclick="handleCheckboxClick('customCheck2')" onchange="goToNextPage()">
+  <label class="custom-control-label" for="customCheck1">Kid</label>
+</div>
+
 
 
 
@@ -181,7 +158,9 @@
           <!-- Content -->
           <h6 class="text-uppercase fw-bold mb-4">
             <i class="bi bi-gem me-3"></i>R-Shoes
+
           </h6>
+
           <p>
             This is the platfrom where you can find the best shoes for you.
             Most of the shoes are made in Nepal but this shoes famous all over the world.
